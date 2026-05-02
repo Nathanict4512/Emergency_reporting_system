@@ -27,7 +27,7 @@ TWILIO_MESSAGING_SERVICE_SID = 'MGf107df8ea7fec85bd7cc03e1d3734342'
 TWILIO_AUTH_TOKEN = st.secrets.get("TWILIO_AUTH_TOKEN", "8e499e6fd02f879a77983f0d76263e59")  # Store in Streamlit secrets
 
 # Emergency contact number
-EMERGENCY_RECEIVER = '+2349063348353'  # Your number
+EMERGENCY_RECEIVER = '+2348147754855'  # Your number
 
 def init_db():
     """Initialize database"""
