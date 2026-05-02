@@ -24,7 +24,7 @@ DATABASE = 'emergency_tracker.db'
 # Twilio Configuration (from your account)
 TWILIO_ACCOUNT_SID = 'AC7805201a7d1b72498fd703d556c0a44d'
 TWILIO_MESSAGING_SERVICE_SID = 'MGf107df8ea7fec85bd7cc03e1d3734342'
-TWILIO_AUTH_TOKEN = st.secrets.get("TWILIO_AUTH_TOKEN", "8e499e6fd02f879a77983f0d76263e59")  # Store in Streamlit secrets
+TWILIO_AUTH_TOKEN = st.secrets.get("TWILIO_AUTH_TOKEN", "fe943e4ad2f156ad506c35bdbce028e5")  # Store in Streamlit secrets
 
 # Emergency contact number
 EMERGENCY_RECEIVER = '+2348147754855'  # Your number
