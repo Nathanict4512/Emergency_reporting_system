@@ -269,7 +269,7 @@ st.markdown("""
     margin: 10px 0;
 }
 .contact-card {
-    background: #f8f9fa;
+    background: #264b2c;
     padding: 15px;
     border-radius: 10px;
     margin: 10px 0;
