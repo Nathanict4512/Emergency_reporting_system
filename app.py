@@ -23,7 +23,8 @@ DATABASE = 'emergency_tracker.db'
 
 # Twilio Configuration (from your account)
 TWILIO_ACCOUNT_SID = 'AC7805201a7d1b72498fd703d556c0a44d'
-TWILIO_MESSAGING_SERVICE_SID = 'MGf107df8ea7fec85bd7cc03e1d3734342'
+# TWILIO_MESSAGING_SERVICE_SID = 'MGf107df8ea7fec85bd7cc03e1d3734342'
+TWILIO_WHATSAPP_NUMBER = 'whatsapp:+14155238886'  # Sandbox number
 TWILIO_AUTH_TOKEN = st.secrets.get("TWILIO_AUTH_TOKEN", "fe943e4ad2f156ad506c35bdbce028e5")  # Store in Streamlit secrets
 
 # Emergency contact number
@@ -78,16 +79,20 @@ def send_whatsapp_twilio(to_number, message):
     """Send WhatsApp message via Twilio"""
     try:
         if not TWILIO_AUTH_TOKEN:
-            st.warning("⚠️ Twilio Auth Token not configured. Add it to Streamlit secrets.")
-            st.info(f"📱 Would send to: {to_number}")
-            st.code(message)
+            st.warning("⚠️ Twilio Auth Token not configured.")
             return True
+        
+        # Format Nigerian phone numbers correctly
+        if to_number.startswith('0'):
+            to_number = '+234' + to_number[1:]
+        elif not to_number.startswith('+'):
+            to_number = '+234' + to_number
         
         url = f'https://api.twilio.com/2010-04-01/Accounts/{TWILIO_ACCOUNT_SID}/Messages.json'
         
         data = {
+            'From': TWILIO_WHATSAPP_NUMBER,  # Using sandbox number
             'To': f'whatsapp:{to_number}',
-            'MessagingServiceSid': TWILIO_MESSAGING_SERVICE_SID,
             'Body': message
         }
         
@@ -107,7 +112,6 @@ def send_whatsapp_twilio(to_number, message):
     except Exception as e:
         st.error(f"Error: {str(e)}")
         return False
-
 def hash_password(password):
     """Hash password"""
     return hashlib.sha256(password.encode()).hexdigest()
