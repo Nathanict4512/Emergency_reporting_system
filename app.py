@@ -28,7 +28,7 @@ TWILIO_WHATSAPP_NUMBER = 'whatsapp:+14155238886'  # Sandbox number
 TWILIO_AUTH_TOKEN = st.secrets.get("TWILIO_AUTH_TOKEN", "fe943e4ad2f156ad506c35bdbce028e5")  # Store in Streamlit secrets
 
 # Emergency contact number
-EMERGENCY_RECEIVER = '+2348147754855'  # Your number
+EMERGENCY_RECEIVER = '+2349063348353'  # Your number
 
 def init_db():
     """Initialize database"""
