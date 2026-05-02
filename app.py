@@ -461,7 +461,7 @@ else:
             for alert in alerts:
                 status_color = "#28a745" if alert[2] == "resolved" else "#dc3545"
                 st.markdown(f"""
-                <div style="background:rgb(155 58 68);padding:15px;border-radius:10px;margin:10px 0;border-left:4px solid {status_color}">
+                <div style="background:rgb(51 84 47);padding:15px;border-radius:10px;margin:10px 0;border-left:4px solid {status_color}">
                     <strong>Alert #{alert[0][-8:]}</strong><br>
                     Status: <span style="color:{status_color}">{alert[2].upper()}</span><br>
                     Time: {alert[3]}<br>
